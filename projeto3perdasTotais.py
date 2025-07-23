@@ -27,16 +27,19 @@ def calcular_perdas_por_cto(caminho):
     n_ctos = len(ctos)
 
     if n_ctos == 2:
+        #10/90
         perda_passagem = -0.7
         perda_ramo = -11
         perda_final = -13.7
         perda_conector = -0.2
     elif n_ctos == 3:
+        #2/98
         perda_passagem = -0.4
         perda_ramo = -18.7
         perda_final = -13.7
         perda_conector = -0.2
     else:
+        #5/95
         perda_passagem = -0.5
         perda_ramo = -14.6
         perda_final = -13.7
