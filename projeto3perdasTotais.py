@@ -46,22 +46,12 @@ def calcular_perdas_por_cto(caminho):
         perda_conector = -0.2
 
     resultados = []
-    perda_caminho_especial = 0  # Inicialização fora do loop
-
     for i, cto in enumerate(ctos):
         n_splitters_1_2 = i
         perda_conector_cto = n_splitters_1_2 * perda_conector
 
-        if n_ctos > 3:
-            if i == n_ctos - 2: 
-                perda_ramo_especial = -4.7
-                perda_caminho_especial = -2.7        
-                perda_splitters = n_splitters_1_2 * perda_passagem + perda_ramo_especial + perda_final
-
-            elif i == n_ctos - 1:
-                perda_splitters = (n_splitters_1_2 - 1) * perda_passagem + perda_caminho_especial + perda_final + ATENUADOR
-            else:
-                perda_splitters = n_splitters_1_2 * perda_passagem + perda_ramo + perda_final + perda_conector_cto
+        if i == n_ctos - 1:
+            perda_splitters = n_splitters_1_2 * perda_passagem + perda_final + ATENUADOR + perda_conector
         else:
             perda_splitters = n_splitters_1_2 * perda_passagem + perda_ramo + perda_final + perda_conector_cto
 
